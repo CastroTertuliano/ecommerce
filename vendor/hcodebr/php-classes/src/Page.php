@@ -19,6 +19,8 @@
        public function __construct($opts = array(), $tpl_dir ="/views/" )
        {
 
+            $this->defaults["data"]["session"] = $_SESSION;
+            
             $this->options = array_merge($this->defaults, $opts);
 
                 // config
