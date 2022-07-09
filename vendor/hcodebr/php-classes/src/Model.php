@@ -10,26 +10,22 @@ class Model
     public function __call($name, $args)
     {
 
-        //método para verificar as 3 primeiras letras da função
-        $method = substr($name, 0, 3); //a partir do 0 traga 3 caracteres
+        $method = substr($name, 0, 3);
 
         $fieldName = substr($name, 3, strlen($name));
 
-        switch($method)
-        {
-
-            case "get":
-
-                    return $this->values[$fieldName];
-
-                break;
-
-            case "set":
-
-                    $this->values[$fieldName] = args[0];
+        switch ($method) {
+            case 'get':
+              
+                return $this->values[$fieldName];
                 
                 break;
 
+                case 'set':
+                    
+                    $this->values[$fieldName] = $args[0];
+
+                    break;
         }
 
     }
@@ -37,10 +33,10 @@ class Model
     public function setData($data = array())
     {
 
-        foreach($data as $key => $value){
+        foreach ($data as $key => $value) {
 
-            $this->{"set".$kay}($value);//varialvel dinâmica
-
+            $this->{"set".$key}($value);
+            
         }
 
     }
